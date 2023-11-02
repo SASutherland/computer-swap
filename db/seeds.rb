@@ -26,9 +26,9 @@ macAir = Computer.new(
     password: "password",
   )
 )
-file = URI.open("https://res.cloudinary.com/carole-g/image/upload/v1661278409/macbookpro_y45wfw.jpg")
-macAir.photos.attach(io: file, filename: "MacAir.jpg", content_type: "image/jpg")
-
+file_path = Rails.root.join("app/assets/images/pc-macair.jpeg")
+file = File.open(file_path)
+macAir.photos.attach(io: file, filename: "macAir.jpeg", content_type: "image/jpeg")
 macAir.save!
 
 macBook = Computer.new(
@@ -42,7 +42,7 @@ macBook = Computer.new(
   category: "Development",
   os: "Mac OS",
   price: 15,
-  description: "The MacBook Pro is a thin 16-inch laptop with unprecedented performance, a Touch Bar and a strong battery. With its 8-core CPU and 8-core GPU, the Apple M1 chip ensures lightning-fast performance and smooth graphics, allowing you to work smoothly with various demanding apps.",
+  description: "The MacBook Pro is a thin 16-inch laptop with unprecedented performance, a Touch Bar, and a strong battery. With its 8-core CPU and 8-core GPU, the Apple M1 chip ensures lightning-fast performance and smooth graphics, allowing you to work smoothly with various demanding apps.",
   user: User.create!(
     first_name: "Pauline",
     last_name: "Marsh",
@@ -51,8 +51,8 @@ macBook = Computer.new(
     password: "password"
   )
 )
-file = URI.open("https://res.cloudinary.com/carole-g/image/upload/v1661278409/mac_pro_tdxsb3.jpg")
-macBook.photos.attach(io: file, filename: "MacBookPro.jpg", content_type: "image/jpg")
+file = File.open("app/assets/images/pc-macbook.jpg")
+macBook.photos.attach(io: file, filename: "macBook.jpg", content_type: "image/jpg")
 macBook.save!
 
 hp = Computer.new(
@@ -69,14 +69,14 @@ hp = Computer.new(
   description: "Work quickly and securely on multiple tasks simultaneously with the reliable HP ProBook 450 G8 (27J14EA). With this laptop, you can quickly access your important documents anywhere and work on all your projects without any problems thanks to the powerful i5 processor and 8 GB of RAM, so you can multitask without any problems.",
   user: User.create!(
     first_name: "Danny",
-    last_name: "Nuge",
+    last_name: "Nelson",
     email: "danny@realmail.com",
     address: "Van Hogendorpstraat 159-121, 1051 GA Amsterdam",
     password: "password"
   )
 )
-file = URI.open("https://res.cloudinary.com/carole-g/image/upload/v1661278410/hp_aaltfn.jpg")
-hp.photos.attach(io: file, filename: "hp.jpg", content_type: "image/jpg")
+file = File.open("app/assets/images/pc-hp.jpeg")
+hp.photos.attach(io: file, filename: "hp.jpeg", content_type: "image/jpg")
 hp.save!
 
 msi = Computer.new(
@@ -90,21 +90,21 @@ msi = Computer.new(
   category: "Gaming",
   os: "Windows",
   price: 15,
-  description: "Amazing gaming laptop! Can run any game without being plugged in, powerful and lightweight, the perfect computer for gamers who are moving around.",
+  description: "Amazing gaming laptop! Can run any game with ease, powerful and lightweight, the perfect computer for gamers who are on the move.",
   user: User.create!(
-    first_name: "Mango",
+    first_name: "Johann",
     last_name: "Artis",
-    email: "Artis@realmail.com",
+    email: "artis@realmail.com",
     address: "Sarphatistraat 91, 1018 EZ Amsterdam",
     password: "password"
   )
 )
-file = URI.open("https://res.cloudinary.com/carole-g/image/upload/v1661516597/msi_bfnhgp.jpg")
-file3 = URI.open("https://res.cloudinary.com/carole-g/image/upload/v1661516597/msi3_qtroyt.jpg")
-file4 = URI.open("https://res.cloudinary.com/carole-g/image/upload/v1661517558/msi4_pdwlyw.jpg")
-msi.photos.attach(io: file, filename: "msi.jpg", content_type: "image/jpg")
-msi.photos.attach(io: file3, filename: "msi3.jpg", content_type: "image/jpg")
-msi.photos.attach(io: file4, filename: "msi4.jpg", content_type: "image/jpg")
+file = File.open("app/assets/images/pc-msi-1.jpeg")
+file2 = File.open("app/assets/images/pc-msi-2.jpeg")
+file3 = File.open("app/assets/images/pc-msi-3.jpeg")
+msi.photos.attach(io: file, filename: "msi.jpeg", content_type: "image/jpg")
+msi.photos.attach(io: file2, filename: "msi2.jpeg", content_type: "image/jpg")
+msi.photos.attach(io: file3, filename: "msi3.jpeg", content_type: "image/jpg")
 msi.save!
 
 alien = Computer.new(
@@ -118,19 +118,19 @@ alien = Computer.new(
   category: "Gaming",
   os: "Windows",
   price: 12,
-  description: "a great and afffordable gaming laptop easy to cary doesn't make a noise, the perfect first step to become a great player.",
+  description: "An afffordable gaming PC that is lightweight and easy to carry, with a lightning-fast Intel processor and state-of-the-art graphics. Have fun!",
   user: User.create!(
-    first_name: "Gon",
+    first_name: "Chris",
     last_name: "Hunter",
-    email: "GonX@realmail.com",
+    email: "chrisX@realmail.com",
     address: "Van Hogendorpstraat 159-121, 1051 GA Amsterdam",
     password: "password"
   )
 )
-file = URI.open("https://res.cloudinary.com/carole-g/image/upload/v1661516597/alien_yrwug7.jpg")
-file2 = URI.open("https://res.cloudinary.com/carole-g/image/upload/v1661516597/alien2_gvbtek.jpg")
-alien.photos.attach(io: file, filename: "alien.jpg", content_type: "image/jpg")
-alien.photos.attach(io: file2, filename: "alien2.jpg", content_type: "image/jpg")
+file = File.open("app/assets/images/pc-alienware-1.jpeg")
+file2 = File.open("app/assets/images/pc-alienware-2.jpeg")
+alien.photos.attach(io: file, filename: "alien.jpeg", content_type: "image/jpg")
+alien.photos.attach(io: file2, filename: "alien2.jpeg", content_type: "image/jpg")
 alien.save!
 
 surface = Computer.new(
@@ -144,17 +144,17 @@ surface = Computer.new(
   category: "Entertainment",
   os: "Windows",
   price: 9,
-  description: "Surface Pro 8 is designed to bring out the best in Windows 11 and let you work, play, and create your way. Laptop, tablet or portable digital media. it's up to you, it's your computer.",
+  description: "Surface Pro 8 is designed to bring out the best in Windows 11 and lets you work, play, and create your own way. Works as a laptop, tablet, or as portable digital media. It's up to you, it's your computer!",
   user: User.create!(
-    first_name: "Gon",
-    last_name: "Hunter",
-    email: "Gon1X@realmail.com",
+    first_name: "James",
+    last_name: "Crocker",
+    email: "crocker@realmail.com",
     address: "Van Hogendorpstraat 159-121, 1051 GA Amsterdam",
     password: "password"
   )
 )
-file = URI.open("https://res.cloudinary.com/carole-g/image/upload/v1661516598/surface_dd1vck.jpg")
-surface.photos.attach(io: file, filename: "surface.jpg", content_type: "image/jpg")
+file = File.open("app/assets/images/pc-surface.jpeg")
+surface.photos.attach(io: file, filename: "surface.jpeg", content_type: "image/jpg")
 surface.save!
 
 dell = Computer.new(
@@ -168,22 +168,18 @@ dell = Computer.new(
   category: "Development",
   os: "Windows",
   price: 12,
-  description: "Work anywhere in the world with the industry's smartest* and most secure* business PCs with built-in AI.",
+  description: "Work anywhere in the world with the industry's smartest and most secure business PC with built-in AI.",
   user: User.create!(
-    first_name: "Gon",
+    first_name: "Lesley",
     last_name: "Hunter",
-    email: "Gon2X@realmail.com",
+    email: "lesley@realmail.com",
     address: "Van Hogendorpstraat 159-121, 1051 GA Amsterdam",
     password: "password"
   )
 )
-file = URI.open("https://res.cloudinary.com/carole-g/image/upload/v1661515562/dell_z4vp0q.jpg")
-file2 = URI.open("https://res.cloudinary.com/carole-g/image/upload/v1661515978/dell2_gfbykr.jpg")
-file3 = URI.open("https://res.cloudinary.com/carole-g/image/upload/v1661515978/dell4_didqg8.jpg")
+file = File.open("app/assets/images/pc-dell.jpg")
 
 dell.photos.attach(io: file, filename: "dell.jpg", content_type: "image/jpg")
-dell.photos.attach(io: file2, filename: "dell2.jpg", content_type: "image/jpg")
-dell.photos.attach(io: file3, filename: "dell3.jpg", content_type: "image/jpg")
 dell.save!
 
 lenovo = Computer.new(
@@ -191,23 +187,23 @@ lenovo = Computer.new(
   model: "Legion 5i Pro 16",
   year: 2018,
   screen_size: "13,3",
-  processor: "Processeur Intel® Core™ i5-12500H 12e génération ",
+  processor: "Processeur Intel® Core™ i5-12500H 12e génération",
   ram: "32 Go (2 x 16 Go) SO-DIMM DDR5 4800MHz",
   storage: "512 Go SSD M.2 2242",
   category: "Data Science",
   os: "Windows",
   price: 15,
-  description: "this is a great laptop to write heavy programms while traveling, doesn't lack power or battery.",
+  description: "This is a great laptop for writing heavy programs while traveling. Doesn't lack processing power or battery life.",
   user: User.create!(
-    first_name: "Gon",
-    last_name: "Hunter",
-    email: "Gon3X@realmail.com",
+    first_name: "Gabrielle",
+    last_name: "Jones",
+    email: "gabby@realmail.com",
     address: "Van Hogendorpstraat 159-121, 1051 GA Amsterdam",
     password: "password"
   )
 )
-file = URI.open("https://res.cloudinary.com/carole-g/image/upload/v1661517455/lenovo_sgnnbv.jpg")
-lenovo.photos.attach(io: file, filename: "lenovo.jpg", content_type: "image/jpg")
+file = File.open("app/assets/images/pc-lenovo.jpeg")
+lenovo.photos.attach(io: file, filename: "lenovo.jpeg", content_type: "image/jpg")
 lenovo.save!
 
 asus = Computer.new(
@@ -221,17 +217,17 @@ asus = Computer.new(
   category: "Photo-Editing",
   os: "Windows",
   price: 15,
-  description: "ASUS laptops with OLED display feature the best color gamut in their class. They reproduce every color with stunning fidelity for true-to-life rendering and professional quality images.",
+  description: "This ASUS laptop with OLED display features the best colors and visuals in its class. It reproduces every color with stunning fidelity for true-to-life rendering and professional quality images.",
   user: User.create!(
-    first_name: "Gon",
-    last_name: "Hunter",
-    email: "Gon4X@realmail.com",
+    first_name: "Michael",
+    last_name: "Baynes",
+    email: "baynes@realmail.com",
     address: "Van Hogendorpstraat 159-121, 1051 GA Amsterdam",
     password: "password"
   )
 )
-file = URI.open("https://res.cloudinary.com/carole-g/image/upload/v1661515561/asus_i6k0ys.jpg")
-asus.photos.attach(io: file, filename: "asus.jpg", content_type: "image/jpg")
+file = File.open("app/assets/images/pc-asus.jpeg")
+asus.photos.attach(io: file, filename: "asus.jpeg", content_type: "image/jpg")
 asus.save!
 
 puts "Done!"

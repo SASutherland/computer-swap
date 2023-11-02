@@ -1,7 +1,7 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top navbar-lewagon-black" data-navbar-target="navbar" data-action="scroll@window->navbar#updateNavbar">
+<div class="navbar navbar-expand-lg navbar-lewagon navbar-lewagon-black fixed-top" data-navbar-target="navbar" data-action="scroll@window->navbar#updateNavbar">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "https://img.freepik.com/free-vector/creative-computer-logo-template_23-2149213537.jpg?w=1380&t=st=1661420651~exp=1661421251~hmac=ac11b55132d026be3a0728488b6b3cb2ecc6248ada20ef03ad510b1545f141f7" %>
+      <%= image_tag "computer-swap-logo.png" %>
     <% end %>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,30 +11,28 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
           <li class="nav-item">
-            <%= link_to "Dashboard", dashboard_path, class: "nav-link" %>
+            <%= link_to "See laptops", root_path(anchor: "laptops"), class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
           <%if current_user.photo.attached?%>
             <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% else %>
-            <%= image_tag "default_avatar.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "default-avatar-grey-2.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Add a laptop", new_computer_path, class: "dropdown-item" %>
+              <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+              <%= link_to "Post a laptop", new_computer_path, class: "dropdown-item" %>
               <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
             </div>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Sign up", new_user_registration_path, class: "nav-link btn btn-flat" %>
+            <%= link_to "Sign up", new_user_registration_path, class: "nav-link btn-purple" %>
           </li>
           <li>
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>

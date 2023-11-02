@@ -1,15 +1,14 @@
-<div class="container">
-
-  <div class="title-wrapper mb-4">
+<div class="container show-container">
+  <div class="computer-title">
     <h1><%= @computer.brand %> <%= @computer.model %></h1>
-    <h3>Owner: <%= @computer.user.first_name %> <%= @computer.user.last_name %>&nbsp
+    <h2><strong>Owner:</strong> <span class="owner-name"><%= @computer.user.first_name %> <%= @computer.user.last_name %></span>&nbsp
 
     <% if @computer.user.photo.present? %>
       <%= image_tag @computer.user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
     <% else %>
       <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
     <% end %>
-    </h3>
+    </h2>
 
   </div>
 
@@ -41,38 +40,38 @@
 
    <div class="show-body-wrapper">
 
-    <div class="details_card w-100 px-4">
+    <div class="details-card">
       <ul>
-      <h3 class="mb-3" style="text-align: left">Specs</h3>
-        <li class="spec-list"><strong>Year: </strong><%= @computer.year %></li class="spec-list">
-        <li class="spec-list"><strong>Screen size: </strong><%= @computer.screen_size %> inches </li class="spec-list">
-        <li class="spec-list"><strong>Processor: </strong><%= @computer.processor %></li class="spec-list">
-        <li class="spec-list"><strong>Ram: </strong><%= @computer.ram %></li class="spec-list">
-        <li class="spec-list"><strong>Storage: </strong><%= @computer.storage %></li class="spec-list">
-        <li class="spec-list"><strong>OS: </strong><%= @computer.os %></li class="spec-list">
-        <li class="spec-list"><strong>Category: </strong><%= @computer.category %></li class="spec-list">
-        <p class="spec-list pt-3"><%= @computer.description %></p>
-        <li class="spec-list pt-3" style="list-style: none"><h3 class="details-price" style="text-align: right"><%= @computer.price %> €/day</h3></li>
+      <h3 class="specs" style="text-align: left">Specs</h3>
+        <li class="spec-list"><span class="specs">Year: </span><%= @computer.year %></li class="spec-list">
+        <li class="spec-list"><span class="specs">Ideal for: </span><%= @computer.category %></li class="spec-list">
+        <li class="spec-list"><span class="specs">Screen size: </span><%= @computer.screen_size %> inches </li class="spec-list">
+        <li class="spec-list"><span class="specs">Processor: </span><%= @computer.processor %></li class="spec-list">
+        <li class="spec-list"><span class="specs">Ram: </span><%= @computer.ram %></li class="spec-list">
+        <li class="spec-list"><span class="specs">Storage: </span><%= @computer.storage %></li class="spec-list">
+        <li class="spec-list"><span class="specs">OS: </span><%= @computer.os %></li class="spec-list">
+        <p class="spec-list pt-3"><span class="specs">Owner description: </span><%= @computer.description %></p>
+        <li class="spec-list pt-3"><h3 class="details-price"><%= @computer.price %>€ / day</h3></li>
       </ul>
     </div>
 
-  <div class="bookingform w-100">
-    <h2><strong>Book this laptop</strong></h2>
+  <div class="booking-form w-100">
+    <h3>Book this laptop</h3>
     <%= simple_form_for [@computer, @booking] do |f| %>
-      <h4><strong><%= f.input :start_date  %></strong></h4>
-      <br>
-      <h4><strong><%= f.input :end_date %></strong></h4>
-      <br>
-      <div class="btn_form_book">
-        <%= f.submit class: "btn btn-flat mt-4" %>
+      <h4><%= f.input :start_date, as: :date, start_year: Date.today.year, end_year: Date.today.year + 2 %></h4>
+        <br>
+      <h4><%= f.input :end_date, as: :date, start_year: Date.today.year, end_year: Date.today.year + 2, default: Date.tomorrow %></h4>
+        <br>
+      <div>
+        <%= f.submit "Reserve", class: "btn-purple btn-booking-form" %>
       </div>
     <% end %>
   </div>
-
  </div>
 
+<h4 class="text-center mt-4">Laptop Pickup</h4>
 
-<div class="w-100 mt-3">
+<div class="w-100 mt-3 mb-4">
   <div class="container-map w-100"
     data-controller="map"
     data-map-markers-value="<%= @marker.to_json %>"

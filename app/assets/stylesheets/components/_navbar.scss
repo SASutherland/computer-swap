@@ -2,21 +2,31 @@
   justify-content: space-between;
   transition: 0.5s background-color ease;
 }
+
 .navbar-lewagon-black {
   background-color: black !important;
 }
+
 .navbar-lewagon-transparent {
   background-color: transparent;
 }
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
+
 .navbar-lewagon .navbar-brand img {
   width: 50px;
 }
-.nav-link{
+
+.nav-link {
   color: white;
+  border: 1px solid rgba($color: white, $alpha: 0.2);
+  padding: 8px 20px !important;
+  margin-left: 12px !important;
+  border-radius: 4px;
 }
-.nav-link:hover{
-  color: #670BFF;
+
+.nav-link:hover {
+  color: #b183fc;
 }

@@ -17,50 +17,34 @@
 
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #FBF3EE;
+  // background-color: #eef0f2;
+  // background-color: #050405;
+  background-color: #020102;
+  color: $anti-flash-white;
 }
 
-.btn-outline-danger:hover {
-  color: white;
+h1 {
+  margin-bottom: 30px;
+  font-size: 45px;
+  font-weight: bold;
+  text-align: center;
 }
 
-.card {
-  padding:15px;
+ul {
+  list-style-type: none;
+  padding-left: 12px;
 }
 
-.create-form{
-  margin-top: 40px;
-}
-
-.form-actions{
+.form-actions {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
 }
 
-.form-card{
-  margin-top: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 3px solid #e5ddd8;
-  width: 50vw;
-  background-color: white;
-  border-radius: 6px;
-  margin-bottom: 16px;
-  padding-bottom: 16px;
-  box-shadow: 5px 5px #bdafa7;
-}
-
 .form-container {
   display: flex;
   justify-content: center;
-}
-
-.form-container a {
-  text-decoration: none;
-  color: black;
 }
 
 .form-control {
@@ -71,25 +55,48 @@ body {
   background-color: white;
 }
 
-.form-inputs{
-  margin-top: 10px;
-  padding-top: 10px;
+.form-inputs {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 3px solid #e5ddd8;
-  background-color: white;
-  width: 50vw;
+  border: 1px solid rgba(255,255,255,0.2);
   border-radius: 6px;
+  color: $anti-flash-white;
+  margin-top: 50px;
   margin-bottom: 16px;
-  padding-bottom: 16px;
-  box-shadow: 1px 5px #e2d1c7;
+  padding: 20px;
+  padding-bottom: 36px;
+  width: 50vw;
 }
 
-form.new_computer {
+.form-inputs h2 {
+  margin-bottom: 0;
+}
+
+.form-inputs a {
+  color: $electric-blue;
+  text-decoration: none;
+}
+
+.form-inputs a:hover {
+  color: $electric-blue-hover;
+  transition: color 0.3s ease;
+}
+
+.form-inputs .btn-purple {
   width: 100%;
 }
 
-.index-container {
-  margin-top: 100px;
+.form-text {
+  color: $electric-blue;
+}
+
+.form-inputs .btn-outline-danger {
+  color: rgb(251, 55, 55);
+  margin-left: 50px;
+}
+
+.form-inputs .btn-outline-danger:hover {
+  color: rgb(255, 90, 90);
+  transition: color 0.3s ease;
 }

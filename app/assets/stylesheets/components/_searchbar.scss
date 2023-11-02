@@ -1,24 +1,41 @@
-.search-form-control {
+.search-form {
   position: relative;
   margin-bottom: 50px;
 }
 
-.search-form-control .btn {
-  position: absolute;
-  top: 8px;
-  bottom: 8px;
-  right: 8px;
-}
-
-.search-form-control .form-control {
+.search-form .form-control {
+  color: $anti-flash-white;
+  background-color: #0b0b0b;
+  border-radius: 24px;
+  font-size: 18px;
   height: 3.5rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  border: 1px solid #E7E7E7;
+  padding-left: 24px;
 }
 
-.search-form-control .form-control:focus {
-  border: 1px solid #D8221E;
-  outline: none !important;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+.search-form .form-control:focus {
+  color: $anti-flash-white;
+  border: 1px solid $electric-blue;
 }
 
+.search-button {
+  position: absolute;
+  top: 50%;
+  right: 1px;
+  background-color: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-top: none;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+  font-size: 25px;
+  padding: 7px 40px 7px 40px;
+  transform: translateY(-50%);
+}
+
+.search-button:hover {
+  background-color: rgba(255,255,255,0.4);
+  transition: background 0.2s ease;
+}
+
+.search-button i.fa-magnifying-glass {
+  color: $anti-flash-white;
+}

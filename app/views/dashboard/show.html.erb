@@ -1,57 +1,81 @@
-<div class="container dashboard">
-  <h3>My Renting Dashboard</h3>
-    <div class="computers-container">
-      <div class ="no-hover d-flex justify-content-around">
-        <div>
-              <h3> My Computer </h3>
-              <div class="row computers-box">
-                <div class="col">
-                  <% @computer.photos.each do |photo| %>
-                      <%= cl_image_tag photo.key, width: 300, height: 250, crop: :fill  %>
-                  <% end %>
-                </div>
-                <div class="col">
-                  <ul>
-                  <li><%= @computer.brand %> </li>
-                  <li> <%= @computer.model %> </li>
-                  <li><strong><%= @computer.price %> €/day </strong></li>
-                  </ul>
-                </div>
-                <div class="col icon d-flex flex-column justify-content-between">
-                  <%= link_to "",  new_computer_path, class: "fa-solid fa-circle-plus d-block" %>
-                  <%= link_to "",  edit_computer_path(@computer), class: "fa-solid fa-pencil d-block" %>
-                  <%= link_to "", computer_path(@computer), class: "fa-solid fa-trash-can d-block", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-                </div>
-              </div>
-          </div>
-      </div>
+<div class="container dashboard-title">
+  <div class=" d-flex row">
+    <div class="col-1">
+      <%if current_user.photo.attached?%>
+        <%= cl_image_tag current_user.photo.key, class: "avatar-big" %>
+      <% else %>
+        <%= image_tag "default-avatar-grey-2.png", class: "avatar-big" %>
+      <% end %>
     </div>
-    <div class="bookings-computer">
-      <div class="no-hover d-flex justify-content-around">
-      <div>
-        <h3> My Bookings </h3>
-        <div class="row booking-box">
-          <div class="col">
-          <% @bookings.each do |booking| %>
-            <li> Start Date : <%= booking.start_date  %></li>
-            <li> End Date :  <%= booking.end_date %> </li>
+    <div class="col-11">
+      <h3><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h3>
+      <p>User since <%= current_user.created_at.strftime("%F") %></p>
+    <div>
+  </div>
+  </div>
+
+  <div class="computer-booking-container row mb-5">
+
+    <div class="bookings-box">
+
+      <h3> My Bookings </h3>
+
+      <% @bookings.each do |booking| %>
+      <div class="entry-row row">
+        <div class="col-4">
+          <%= cl_image_tag booking.computer.photos.first.key, crop: :fill %>
+        </div>
+        <div class="col-6">
+          <ul>
+            <li><strong><%= booking.computer.brand %></strong></li>
+            <li>Start: <strong><%= booking.start_date.strftime("%b. %d, %Y") %></strong></li>
+            <li>Return: <strong> <%= booking.end_date.strftime("%b. %d, %Y") %></strong></li>
             <% start = booking.start_date %>
             <% last = booking.end_date %>
-            <% result = last - start %>
-            <% price = result.to_i * @computer.price %>
-            <li> Number of Days : <%= result.to_i %> days</li>
+            <% days = last - start %>
+            <% price = days.to_i * @computer.price %>
+          </ul>
 
+          <h5 class ="balance">Total: <strong><%= price %> €</strong> </h5>
+        </div>
 
-              <h5 class ="balance">Balance : <strong><%= price %> Euros</strong> </h5>
-            
+        <div class="col-2">
+          <div class="d-flex icons">
+            <%= link_to "", edit_booking_path(booking), class: "fa-solid fa-pencil d-block" %>
+            <%= link_to "", booking_path(booking), class: "fa-solid fa-trash-can d-block", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           </div>
-            <div class=" col icon d-flex flex-column justify-content-between align-items-center">
-              <%= link_to "",   edit_booking_path(booking), class: "fa-solid fa-pencil d-block" %>
-              <%= link_to "",   booking_path(booking), class: "fa-solid fa-trash-can d-block", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-            </div>
-          <% end %>
+        </div>
+      </div>
+    <% end %>
+    </div>
+
+    <div class="computers-box">
+      <h3>My Laptops for Rental <span class="plus-sign"><%= link_to "", new_computer_path, class: "fa-solid fa-circle-plus" %></span></h3>
+
+      <div class="entry-row row">
+
+        <div class="col-4">
+          <%= cl_image_tag @computer.photos.first.key, crop: :fill %>
+        </div>
+
+        <div class="col-6">
+          <ul>
+            <li><%= @computer.brand %> </li>
+            <li>Category: <%= @computer.category %> </li>
+            <li>Screen Size: <%= @computer.screen_size %> </li>
+            <li><%= @computer.price %> €/day</li>
+          </ul>
+        </div>
+
+        <div class="col-2">
+          <div class="d-flex icons">
+            <%= link_to "", edit_computer_path(@computer), class: "fa-solid fa-pencil" %>
+            <%= link_to "", computer_path(@computer), class: "fa-solid fa-trash-can", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </div>
         </div>
       </div>
     </div>
+
   </div>
+
 </div>

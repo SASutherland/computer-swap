@@ -1,16 +1,27 @@
-@import "home";
-
-.title-wrapper h1 {
-  font-size: 60px;
-  text-align: left !important;
+.show-container {
+  width: 1080px;
 }
 
-.title-wrapper h2, h3 {
-  text-align: left !important;
+.computer-title {
+  margin-top: 100px;
 }
 
-.details-price {
-  text-align: right !important;
+.computer-title h1 {
+  color: $electric-blue;
+  font-size: 34px;
+  margin-bottom: 4px;
+  text-align: left;
+}
+
+.computer-title h2 {
+  color: $anti-flash-white;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: left ;
+}
+
+.owner-name {
+  font-weight: lighter;
 }
 
 .carousel-img{
@@ -21,12 +32,18 @@
   margin-bottom: 1rem;
 }
 
-.carousel-wrapper {
-  // display:flex;
-  // justify-content: center;
-  // align-items: center;
-  // padding-right: 50px;
-  // width: 390px;
+.details-card {
+  display: flex;
+  align-items: center;
+  background: #141414;
+  // border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px;
+  padding: 20px 25px 0 0;
+  width: 100%;
+}
+
+.details-card h3 {
+  font-size: 24px;
 }
 
 .show-body-wrapper {
@@ -35,93 +52,108 @@
   gap: 1rem;
 }
 
-#cardProduct{
-  width: 100%;
-  height: 100%;
-  border:2px solid #fff;
-  background: url(img/tiger.png) no-repeat;
-  -moz-box-shadow: 10px 10px 5px #ccc;
-  -webkit-box-shadow: 10px 10px 5px #ccc;
-  box-shadow: 10px 10px 5px #ccc;
-  -moz-border-radius:25px;
-  -webkit-border-radius:25px;
-  border-radius:25px;
+.specs {
+  color: $electric-blue;
+  font-weight: bold;
 }
 
-.text-center {
-  text-align: center;
+.spec-list {
+  font-size: 16px;
 }
 
-#title{
-  margin-bottom: 50px;
+.details-price {
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 10px;
+  text-align: right !important;
 }
 
-#specs{
-  font-size: 25px;
-  border-radius: 16px;
-  padding: 15px 15px;
-}
-.p-3 {
-  padding: 2rem !important;
-}
-
-.row{
-  align-items: center;
-}
-
-
-#product_card img{
-  height: 150px;
-  width: 200px;
-  border-radius: 58px;
-  padding-bottom: 30px;
-}
-
-.bookingform {
-  // border: 2px solid rgb(188, 186, 186);
+.booking-form {
+  // border: 1px solid rgba(255,255,255,0.2);
+  background-color: #141414;
+  color: $anti-flash-white;
   border-radius: 8px;
-  padding: 20px;
-  background-color: white;
-  width: 40%;
   margin-right: 2rem;
-  box-shadow: 3px 5px #e0e0e0f3;
+  padding: 25px;
 }
 
-.bookingform h2 {
-  text-align: center !important;
+.booking-form h3 {
+  color: $mindaro;
+  font-size: 34px;
+  font-weight: bold;
+  margin-bottom: 48px;
 }
 
-.btn_form_book {
+.booking-form h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.btn-booking-form {
   display: flex;
   justify-content: center;
-  input {
-    font-size: 20px;
-    font-weight: bold;
-  }
+  margin-top: 22px;
+  width: 100%;
+  // input {
+  //   font-size: 20px;
+  //   font-weight: bold;
+  // }
 }
 
-.details_card {
-  // margin-left: 91px;
-  background: white;
-  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  border-radius: 8px;
-  // border: 2px solid #bcbaba;
-  width: 40%;
-  padding-top: 20px;
-}
 
-.details_card ul {
-  padding-right: 20px;
-  list-style: none;
-}
 
-.details_card h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
+
+
+
+
+
+
+
+
+
+// #cardProduct{
+//   width: 100%;
+//   height: 100%;
+//   border:2px solid #fff;
+//   background: url(img/tiger.png) no-repeat;
+//   -moz-box-shadow: 10px 10px 5px #ccc;
+//   -webkit-box-shadow: 10px 10px 5px #ccc;
+//   box-shadow: 10px 10px 5px #ccc;
+//   -moz-border-radius:25px;
+//   -webkit-border-radius:25px;
+//   border-radius:25px;
+// }
+
+// .text-center {
+//   text-align: center;
+// }
+
+// #title{
+//   margin-bottom: 50px;
+// }
+
+// #specs{
+//   font-size: 25px;
+//   border-radius: 16px;
+//   padding: 15px 15px;
+// }
+// .p-3 {
+//   padding: 2rem !important;
+// }
+
+// .row{
+//   align-items: center;
+// }
+
+
+// #product_card img{
+//   height: 150px;
+//   width: 200px;
+//   border-radius: 58px;
+//   padding-bottom: 30px;
+// }
+
+
 
 .showcontainer{
   width: 100vw;
@@ -153,9 +185,6 @@
   border-radius: 8px;
 }
 
-.spec-list {
-  font-size: 20px;
-}
 
 // .name-owner-wrapper {
 //   display: flex;

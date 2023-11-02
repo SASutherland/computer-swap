@@ -1,15 +1,15 @@
 class ComputersController < ApplicationController
-  skip_before_action :authenticate_user!, only: :show
-
   def show
     @computer = Computer.find(params[:id])
     @booking = Booking.new
 
-    @marker =
-      [{
-        lat: current_user.latitude,
-        lng: current_user.longitude
-      }]
+    if current_user
+      @marker =
+        [{
+          lat: current_user.latitude,
+          lng: current_user.longitude
+        }]
+    end
   end
 
   def new
