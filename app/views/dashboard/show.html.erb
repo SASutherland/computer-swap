@@ -1,81 +1,79 @@
 <div class="container dashboard-title">
   <div class=" d-flex row">
-    <div class="col-1">
+    <div class="col-sm-2 col-lg-1">
       <%if current_user.photo.attached?%>
         <%= cl_image_tag current_user.photo.key, class: "avatar-big" %>
       <% else %>
         <%= image_tag "default-avatar-grey-2.png", class: "avatar-big" %>
       <% end %>
     </div>
-    <div class="col-11">
+    <div class="col-sm-10 col-lg-11">
       <h3><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h3>
       <p>User since <%= current_user.created_at.strftime("%F") %></p>
     <div>
   </div>
+</div>
+
+<div class="computer-booking-container row mb-5">
+
+  <div class="bookings-box col-sm-12 col-lg-6">
+
+    <h3> My Bookings </h3>
+
+    <% @bookings.each do |booking| %>
+    <div class="entry-row row">
+      <div class="col-4">
+        <%= cl_image_tag booking.computer.photos.first.key, crop: :fill %>
+      </div>
+      <div class="col-6">
+        <ul>
+          <li><strong><%= booking.computer.brand %></strong></li>
+          <li>Start: <strong><%= booking.start_date.strftime("%b. %d, %Y") %></strong></li>
+          <li>Return: <strong> <%= booking.end_date.strftime("%b. %d, %Y") %></strong></li>
+          <% start = booking.start_date %>
+          <% last = booking.end_date %>
+          <% days = last - start %>
+          <% price = days.to_i * @computer.price %>
+        </ul>
+
+        <h5 class ="balance">Total: <strong><%= price %> €</strong> </h5>
+      </div>
+
+      <div class="col-2">
+        <div class="d-flex icons">
+          <%= link_to "", edit_booking_path(booking), class: "fa-solid fa-pencil d-block" %>
+          <%= link_to "", booking_path(booking), class: "fa-solid fa-trash-can d-block", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        </div>
+      </div>
+    </div>
+  <% end %>
   </div>
 
-  <div class="computer-booking-container row mb-5">
+  <div class="computers-box col-sm-12 col-lg-6">
+    <h3>My Laptops <span class="plus-sign"><%= link_to "", new_computer_path, class: "fa-solid fa-circle-plus" %></span></h3>
 
-    <div class="bookings-box">
+    <div class="entry-row row">
 
-      <h3> My Bookings </h3>
-
-      <% @bookings.each do |booking| %>
-      <div class="entry-row row">
-        <div class="col-4">
-          <%= cl_image_tag booking.computer.photos.first.key, crop: :fill %>
-        </div>
-        <div class="col-6">
-          <ul>
-            <li><strong><%= booking.computer.brand %></strong></li>
-            <li>Start: <strong><%= booking.start_date.strftime("%b. %d, %Y") %></strong></li>
-            <li>Return: <strong> <%= booking.end_date.strftime("%b. %d, %Y") %></strong></li>
-            <% start = booking.start_date %>
-            <% last = booking.end_date %>
-            <% days = last - start %>
-            <% price = days.to_i * @computer.price %>
-          </ul>
-
-          <h5 class ="balance">Total: <strong><%= price %> €</strong> </h5>
-        </div>
-
-        <div class="col-2">
-          <div class="d-flex icons">
-            <%= link_to "", edit_booking_path(booking), class: "fa-solid fa-pencil d-block" %>
-            <%= link_to "", booking_path(booking), class: "fa-solid fa-trash-can d-block", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-          </div>
-        </div>
+      <div class="col-4">
+        <%= cl_image_tag @computer.photos.first.key, crop: :fill %>
       </div>
-    <% end %>
-    </div>
 
-    <div class="computers-box">
-      <h3>My Laptops for Rental <span class="plus-sign"><%= link_to "", new_computer_path, class: "fa-solid fa-circle-plus" %></span></h3>
+      <div class="col-6">
+        <ul>
+          <li><%= @computer.brand %> </li>
+          <li>Category: <%= @computer.category %> </li>
+          <li>Screen Size: <%= @computer.screen_size %> </li>
+          <li><%= @computer.price %> €/day</li>
+        </ul>
+      </div>
 
-      <div class="entry-row row">
-
-        <div class="col-4">
-          <%= cl_image_tag @computer.photos.first.key, crop: :fill %>
-        </div>
-
-        <div class="col-6">
-          <ul>
-            <li><%= @computer.brand %> </li>
-            <li>Category: <%= @computer.category %> </li>
-            <li>Screen Size: <%= @computer.screen_size %> </li>
-            <li><%= @computer.price %> €/day</li>
-          </ul>
-        </div>
-
-        <div class="col-2">
-          <div class="d-flex icons">
-            <%= link_to "", edit_computer_path(@computer), class: "fa-solid fa-pencil" %>
-            <%= link_to "", computer_path(@computer), class: "fa-solid fa-trash-can", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-          </div>
+      <div class="col-2">
+        <div class="d-flex icons">
+          <%= link_to "", edit_computer_path(@computer), class: "fa-solid fa-pencil" %>
+          <%= link_to "", computer_path(@computer), class: "fa-solid fa-trash-can", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         </div>
       </div>
     </div>
-
   </div>
 
 </div>

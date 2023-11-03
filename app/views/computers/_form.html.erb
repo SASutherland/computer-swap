@@ -18,7 +18,7 @@
       <%= f.input :description, input_html: { maxlength: 500 } %>
     <br>
     <div class="d-flex justify-content-around align-items-center">
-      <%= f.button :submit, "Post your laptop", class: "w-50 btn btn-flat" %>
-      <%= link_to "Back to computers", computers_path, class: "btn btn-outline-secondary" %>
+      <%= f.button :submit, "Post your laptop", class: "w-50 btn-purple" %>
+      <%= link_to "Back to laptops", root_path(anchor: "laptops"), class: "btn btn-outline-secondary" %>
     </div>
   <% end %>

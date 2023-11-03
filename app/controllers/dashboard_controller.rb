@@ -7,11 +7,19 @@ class DashboardController < ApplicationController
 
 
   def show
-    @booking = current_user.bookings.last
-    @bookings = current_user.bookings
     @computers = Computer.all
     @computer = Computer.last
+
+    if @bookings.any?
+      @bookings = current_user.bookings
+    else
+      @bookings = nil
+    end
+
+    if @bookings.any?
+      @booking = @bookings.last
+    else
+      @booking = nil
+    end
   end
-
-
 end
