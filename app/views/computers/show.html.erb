@@ -1,10 +1,10 @@
 <div class="container show-container">
   <div class="computer-title">
     <h1><%= @computer.brand %> <%= @computer.model %></h1>
-    <h2><strong>Owner:</strong> <span class="owner-name"><%= @computer.user.first_name %> <%= @computer.user.last_name %></span>&nbsp
+    <h2><strong>Owner:</strong> <span class="owner-name"><%= @computer.user.first_name %> <%= @computer.user.last_name %></span>
 
-    <% if @computer.user.photo.present? %>
-      <%= image_tag @computer.user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <% if @computer.user.photo.any? %>
+      <%= cl_image_tag @computer.user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
     <% else %>
       <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
     <% end %>
@@ -37,7 +37,6 @@
       </div>
     </div>
 
-
    <div class="show-body-wrapper">
 
     <div class="details-card">
@@ -60,7 +59,7 @@
     <%= simple_form_for [@computer, @booking] do |f| %>
       <h4><%= f.input :start_date, as: :date, start_year: Date.today.year, end_year: Date.today.year + 2 %></h4>
         <br>
-      <h4><%= f.input :end_date, as: :date, start_year: Date.today.year, end_year: Date.today.year + 2, default: Date.tomorrow %></h4>
+      <h4><%= f.input :end_date, label: "Return date", as: :date, start_year: Date.today.year, end_year: Date.today.year + 2, default: Date.tomorrow %></h4>
         <br>
       <div>
         <%= f.submit "Reserve", class: "btn-purple btn-booking-form" %>

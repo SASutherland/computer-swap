@@ -5,21 +5,8 @@ class DashboardController < ApplicationController
     @computers = Computer.all
   end
 
-
   def show
-    @computers = Computer.all
-    @computer = Computer.last
-
-    if @bookings.any?
-      @bookings = current_user.bookings
-    else
-      @bookings = nil
-    end
-
-    if @bookings.any?
-      @booking = @bookings.last
-    else
-      @booking = nil
-    end
+    @computers = current_user.computers
+    @bookings = current_user.bookings
   end
 end

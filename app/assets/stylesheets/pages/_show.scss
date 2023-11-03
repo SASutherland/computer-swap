@@ -36,14 +36,17 @@
   display: flex;
   align-items: center;
   background: #141414;
-  // border: 1px solid rgba(255,255,255,0.2);
   border-radius: 8px;
-  padding: 20px 25px 0 0;
+  padding: 20px 25px 0 13px;
   width: 100%;
 }
 
 .details-card h3 {
   font-size: 24px;
+}
+
+.details-card ul {
+  width: 100%;
 }
 
 .show-body-wrapper {
@@ -64,11 +67,12 @@
 .details-price {
   color: rgba(255,255,255,0.8);
   margin-bottom: 10px;
-  text-align: right !important;
+  position: relative;
+  text-align: right;
+  top: 12px;
 }
 
 .booking-form {
-  // border: 1px solid rgba(255,255,255,0.2);
   background-color: #141414;
   color: $anti-flash-white;
   border-radius: 8px;
@@ -78,26 +82,24 @@
 
 .booking-form h3 {
   color: $mindaro;
-  font-size: 34px;
+  font-size: 24px;
   font-weight: bold;
-  margin-bottom: 48px;
+  margin-bottom: 34px;
+  text-align: center;
 }
 
 .booking-form h4 {
   font-size: 18px;
   font-weight: bold;
-  margin-top: 10px;
+  margin-top: -17px;
 }
 
 .btn-booking-form {
   display: flex;
+  position: relative;
   justify-content: center;
-  margin-top: 22px;
   width: 100%;
-  // input {
-  //   font-size: 20px;
-  //   font-weight: bold;
-  // }
+  top: -5px;
 }
 
 

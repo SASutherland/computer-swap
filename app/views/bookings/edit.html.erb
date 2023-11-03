@@ -1,19 +1,15 @@
-<br>
-<br>
-
-<br>
-
-  <div class="bookingform  ">
+<div class="container d-flex justify-content-center">
+  <div class="edit-booking-form row form-inputs">
     <%# update a new booking  %>
-    <h1>Update your booking</h1>
+    <h2>Update your booking</h2>
+    <br>
 
-      <%= simple_form_for [ @booking] do |f| %>
-        <%# <%= f.input :brand %>
-        <%= f.input :start_date %>
-        <%= f.input :end_date %>
-        <div class="row" id="book">
-          <%= f.submit class: "btn btn-flat" %>
-          <% end %>
-        </div>
+    <%= simple_form_for [ @booking] do |f| %>
+    <%# <%= f.input :brand %>
+    <%= f.input :start_date, label: "New start date" %>
+    <%= f.input :end_date, label: "New return date" %>
+    <%= f.submit class: "btn-purple" %>
+      <% end %>
+    </div>
   </div>
 </div>

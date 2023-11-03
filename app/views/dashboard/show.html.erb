@@ -27,16 +27,16 @@
       </div>
       <div class="col-6">
         <ul>
-          <li><strong><%= booking.computer.brand %></strong></li>
+          <li><%= booking.computer.brand %> - <%= booking.computer.model %></li>
           <li>Start: <strong><%= booking.start_date.strftime("%b. %d, %Y") %></strong></li>
           <li>Return: <strong> <%= booking.end_date.strftime("%b. %d, %Y") %></strong></li>
           <% start = booking.start_date %>
           <% last = booking.end_date %>
           <% days = last - start %>
-          <% price = days.to_i * @computer.price %>
+          <% price = days.to_i * booking.computer.price %>
+          <li class ="balance">Total: <strong><%= price %> €</strong></li>
         </ul>
 
-        <h5 class ="balance">Total: <strong><%= price %> €</strong> </h5>
       </div>
 
       <div class="col-2">
@@ -50,30 +50,41 @@
   </div>
 
   <div class="computers-box col-sm-12 col-lg-6">
-    <h3>My Laptops <span class="plus-sign"><%= link_to "", new_computer_path, class: "fa-solid fa-circle-plus" %></span></h3>
+    <h3>My Laptops <span class="plus-sign"><%= link_to "", new_computer_path, class: "fa-solid fa-circle-plus add-laptop-link" %></span></h3>
 
-    <div class="entry-row row">
+    <% if @computers.any? %>
+      <% @computers.each do |computer| %>
+      <div class="entry-row row">
 
-      <div class="col-4">
-        <%= cl_image_tag @computer.photos.first.key, crop: :fill %>
-      </div>
+        <div class="col-4">
+          <%= cl_image_tag computer.photos.first.key, crop: :fill %>
+        </div>
 
-      <div class="col-6">
-        <ul>
-          <li><%= @computer.brand %> </li>
-          <li>Category: <%= @computer.category %> </li>
-          <li>Screen Size: <%= @computer.screen_size %> </li>
-          <li><%= @computer.price %> €/day</li>
-        </ul>
-      </div>
+        <div class="col-6">
+          <ul>
+            <li><%= computer.brand %> - <%= computer.model %></li>
+            <li>Category: <%= computer.category %> </li>
+            <li>Screen Size: <%= computer.screen_size %> </li>
+            <li class="balance"><%= computer.price %> €/day</li>
+          </ul>
+        </div>
 
-      <div class="col-2">
-        <div class="d-flex icons">
-          <%= link_to "", edit_computer_path(@computer), class: "fa-solid fa-pencil" %>
-          <%= link_to "", computer_path(@computer), class: "fa-solid fa-trash-can", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <div class="col-2">
+          <div class="d-flex icons">
+            <%= link_to "", edit_computer_path(computer), class: "fa-solid fa-pencil" %>
+            <%= link_to "", computer_path(computer), class: "fa-solid fa-trash-can", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </div>
         </div>
       </div>
+      <% end %>
+    <% else %>
+      <div class="entry-row row no-laptop">
+        <ul>
+          <li>You haven't posted any laptops for rental yet</li>
+          <li><%= link_to "Add a laptop", new_computer_path, class: "add-laptop-link" %></li>
+        </ul>
+      </div>
+    <% end %>
     </div>
   </div>
-
 </div>

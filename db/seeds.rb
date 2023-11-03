@@ -6,31 +6,6 @@ puts "Cleared!"
 
 puts "Creating users, computers..."
 
-macAir = Computer.new(
-  brand: "Apple",
-  model:  "MacBook Air",
-  year: 2022,
-  screen_size: "13.0",
-  processor: "Apple M2 with 8-core CPU and 10-core GPU",
-  ram: "8 GB",
-  storage: "256 GB SSD",
-  category: "Entertainment",
-  os: "Mac OS",
-  price: 12,
-  description: "The thin and powerful MacBook Air is a 13-inch laptop with a Retina display. This screen provides unprecedented sharpness and accurate color reproduction, allowing you to enjoy your favorite movies, series or photos.",
-  user: User.create!(
-    first_name: "Bob",
-    last_name: "Rutherford",
-    email: "bob@fakemail.com",
-    address: "Jacob Obrechtstraat 92, 1071 KR Amsterdam",
-    password: "password",
-  )
-)
-file_path = Rails.root.join("app/assets/images/pc-macair.jpeg")
-file = File.open(file_path)
-macAir.photos.attach(io: file, filename: "macAir.jpeg", content_type: "image/jpeg")
-macAir.save!
-
 macBook = Computer.new(
   brand: "Apple",
   model:  "MacBook Pro",
@@ -47,10 +22,13 @@ macBook = Computer.new(
     first_name: "Pauline",
     last_name: "Marsh",
     email: "pauline@fakemail.com",
-    address: "Tweede Oosterparkstraat 128, 1092 BP Amsterdam",
+    address: "Kecskeméti u. 17, 1053 Budapest, Hungary",
     password: "password"
   )
 )
+macBook.address = macBook.user.address
+macBook.latitude = macBook.user.latitude
+macBook.longitude = macBook.user.longitude
 file = File.open("app/assets/images/pc-macbook.jpg")
 macBook.photos.attach(io: file, filename: "macBook.jpg", content_type: "image/jpg")
 macBook.save!
@@ -71,10 +49,13 @@ hp = Computer.new(
     first_name: "Danny",
     last_name: "Nelson",
     email: "danny@realmail.com",
-    address: "Van Hogendorpstraat 159-121, 1051 GA Amsterdam",
+    address: "Váci u 72-66, 1056 Budapest, Hungary",
     password: "password"
   )
 )
+hp.address = hp.user.address
+hp.latitude = hp.user.latitude
+hp.longitude = hp.user.longitude
 file = File.open("app/assets/images/pc-hp.jpeg")
 hp.photos.attach(io: file, filename: "hp.jpeg", content_type: "image/jpg")
 hp.save!
@@ -90,15 +71,18 @@ msi = Computer.new(
   category: "Gaming",
   os: "Windows",
   price: 15,
-  description: "Amazing gaming laptop! Can run any game with ease, powerful and lightweight, the perfect computer for gamers who are on the move.",
+  description: "Amazing gaming laptop! Can run any game with ease, powerful and lightweight, the perfect computer for gamers on the move.",
   user: User.create!(
     first_name: "Johann",
     last_name: "Artis",
     email: "artis@realmail.com",
-    address: "Sarphatistraat 91, 1018 EZ Amsterdam",
+    address: "Pala u. 1, 1011 Budapest, Hungary",
     password: "password"
   )
 )
+msi.address = msi.user.address
+msi.latitude = msi.user.latitude
+msi.longitude = msi.user.longitude
 file = File.open("app/assets/images/pc-msi-1.jpeg")
 file2 = File.open("app/assets/images/pc-msi-2.jpeg")
 file3 = File.open("app/assets/images/pc-msi-3.jpeg")
@@ -123,10 +107,13 @@ alien = Computer.new(
     first_name: "Chris",
     last_name: "Hunter",
     email: "chrisX@realmail.com",
-    address: "Van Hogendorpstraat 159-121, 1051 GA Amsterdam",
+    address: "Mária tér 1, 1011 Budapest, Hungary",
     password: "password"
   )
 )
+alien.address = alien.user.address
+alien.latitude = alien.user.latitude
+alien.longitude = alien.user.longitude
 file = File.open("app/assets/images/pc-alienware-1.jpeg")
 file2 = File.open("app/assets/images/pc-alienware-2.jpeg")
 alien.photos.attach(io: file, filename: "alien.jpeg", content_type: "image/jpg")
@@ -149,13 +136,44 @@ surface = Computer.new(
     first_name: "James",
     last_name: "Crocker",
     email: "crocker@realmail.com",
-    address: "Van Hogendorpstraat 159-121, 1051 GA Amsterdam",
+    address: "Királyfürdő u. 4, 1027 Budapest, Hungary",
     password: "password"
   )
 )
+surface.address = surface.user.address
+surface.latitude = surface.user.latitude
+surface.longitude = surface.user.longitude
 file = File.open("app/assets/images/pc-surface.jpeg")
 surface.photos.attach(io: file, filename: "surface.jpeg", content_type: "image/jpg")
 surface.save!
+
+macAir = Computer.new(
+  brand: "Apple",
+  model:  "MacBook Air",
+  year: 2022,
+  screen_size: "13.0",
+  processor: "Apple M2 with 8-core CPU and 10-core GPU",
+  ram: "8 GB",
+  storage: "256 GB SSD",
+  category: "Entertainment",
+  os: "Mac OS",
+  price: 12,
+  description: "The thin and powerful MacBook Air is a 13-inch laptop with a Retina display. This screen provides unprecedented sharpness and accurate color reproduction, allowing you to enjoy your favorite movies, series or photos.",
+  user: User.create!(
+    first_name: "Bob",
+    last_name: "Rutherford",
+    email: "bob@fakemail.com",
+    address: "Kígyó u. 4-6, 1052 Budapest, Hungary",
+    password: "password",
+  )
+)
+macAir.address = macAir.user.address
+macAir.latitude = macAir.user.latitude
+macAir.longitude = macAir.user.longitude
+file_path = Rails.root.join("app/assets/images/pc-macair.jpeg")
+file = File.open(file_path)
+macAir.photos.attach(io: file, filename: "macAir.jpeg", content_type: "image/jpeg")
+macAir.save!
 
 dell = Computer.new(
   brand: "Dell",
@@ -173,12 +191,14 @@ dell = Computer.new(
     first_name: "Lesley",
     last_name: "Hunter",
     email: "lesley@realmail.com",
-    address: "Van Hogendorpstraat 159-121, 1051 GA Amsterdam",
+    address: "Mecset u. 15-17, 1023 Budapest, Hungary",
     password: "password"
   )
 )
+dell.address = dell.user.address
+dell.latitude = dell.user.latitude
+dell.longitude = dell.user.longitude
 file = File.open("app/assets/images/pc-dell.jpg")
-
 dell.photos.attach(io: file, filename: "dell.jpg", content_type: "image/jpg")
 dell.save!
 
@@ -198,10 +218,13 @@ lenovo = Computer.new(
     first_name: "Gabrielle",
     last_name: "Jones",
     email: "gabby@realmail.com",
-    address: "Van Hogendorpstraat 159-121, 1051 GA Amsterdam",
+    address: "Katona József u. 25-27, 1137 Budapest, Hungary",
     password: "password"
   )
 )
+lenovo.address = lenovo.user.address
+lenovo.latitude = lenovo.user.latitude
+lenovo.longitude = lenovo.user.longitude
 file = File.open("app/assets/images/pc-lenovo.jpeg")
 lenovo.photos.attach(io: file, filename: "lenovo.jpeg", content_type: "image/jpg")
 lenovo.save!
@@ -222,10 +245,13 @@ asus = Computer.new(
     first_name: "Michael",
     last_name: "Baynes",
     email: "baynes@realmail.com",
-    address: "Van Hogendorpstraat 159-121, 1051 GA Amsterdam",
+    address: "Fehérvári út 101-107, 1119 Budapest, Hungary",
     password: "password"
   )
 )
+asus.address = asus.user.address
+asus.latitude = asus.user.latitude
+asus.longitude = asus.user.longitude
 file = File.open("app/assets/images/pc-asus.jpeg")
 asus.photos.attach(io: file, filename: "asus.jpeg", content_type: "image/jpg")
 asus.save!

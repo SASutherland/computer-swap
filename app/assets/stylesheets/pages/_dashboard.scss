@@ -31,7 +31,6 @@
 .bookings-box, .computers-box {
   border-radius: 8px;
   font-size: 25px;
-  // width: 48%;
 }
 
 .plus-sign {
@@ -42,11 +41,11 @@
 }
 
 .entry-row {
+  height: 129px;
+  width: 100%;
   background-color: #141414;
   margin-bottom: 3px;
   padding: 10px 0;
-  margin-bottom: 5px;
-  width: 100%;
 }
 
 .icons {
@@ -62,17 +61,26 @@
   margin-top: 10px;
 }
 
+.no-laptop {
+  font-size: 16px;
+}
 
-.fa-solid {
+.no-laptop ul {
+  margin-left: 12px;
+}
+
+.add-laptop-link {
+  color: $electric-blue;
   text-decoration: none;
 }
 
-.fa-circle-plus {
-  color: $electric-blue;
+.add-laptop-link:hover {
+  color: $electric-blue-hover;
+  transition: color 0.3s ease;
 }
 
-.fa-circle-plus:hover {
-  color: $electric-blue-hover;
+.fa-solid {
+  text-decoration: none;
 }
 
 .fa-pencil {
@@ -80,7 +88,8 @@
 }
 
 .fa-pencil:hover {
-  color: #d6de3a;
+  color: #d1d930;
+  transition: color 0.3s ease;
 }
 
 .fa-trash-can {
@@ -88,5 +97,6 @@
 }
 
 .fa-trash-can:hover {
-  color: #cc4572;
+  color: #8e294b;
+  transition: color 0.3s ease;
 }

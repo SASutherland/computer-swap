@@ -3,13 +3,7 @@ class ComputersController < ApplicationController
     @computer = Computer.find(params[:id])
     @booking = Booking.new
 
-    if current_user
-      @marker =
-        [{
-          lat: current_user.latitude,
-          lng: current_user.longitude
-        }]
-    end
+    @marker = [{ lat: @computer.latitude, lng: @computer.longitude}]
   end
 
   def new
@@ -19,6 +13,9 @@ class ComputersController < ApplicationController
   def create
     @computer = Computer.new(computer_params)
     @computer.user = current_user
+    @computer.address = current_user.address
+    @computer.latitude = current_user.latitude
+    @computer.longitude = current_user.longitude
     @computer.save!
     redirect_to dashboard_path
   end
@@ -40,13 +37,11 @@ class ComputersController < ApplicationController
     end
   end
 
-
   def destroy
     @computer = Computer.find(params[:id])
     @computer.destroy
     redirect_to dashboard_path, status: :see_other
   end
-
 
   private
 
