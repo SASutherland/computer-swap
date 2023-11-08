@@ -20,7 +20,7 @@
           <% else %>
             <%= image_tag "default-avatar-grey-2.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <div class="dropdown-menu dropdown-menu-end" >
               <%= link_to "Search for laptops", root_path(anchor: "laptops"), class: "dropdown-item" %>
               <%= link_to "Post a laptop", new_computer_path, class: "dropdown-item" %>
               <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>

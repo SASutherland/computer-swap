@@ -3,10 +3,12 @@
     <h1><%= @computer.brand %> <%= @computer.model %></h1>
     <h2><strong>Owner:</strong> <span class="owner-name"><%= @computer.user.first_name %> <%= @computer.user.last_name %></span>
 
-    <% if @computer.user.photo.any? %>
-      <%= cl_image_tag @computer.user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    <% if @computer.user.photo.attached? %>
+      <%= image_tag @computer.user.photo, class: "avatar dropdown-toggle" %>
+    <% elsif @computer.user == current_user %>
+      <%= image_tag "default-avatar-grey-2.png", class: "avatar dropdown-toggle" %>
     <% else %>
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/random", class: "avatar dropdown-toggle" %>
     <% end %>
     </h2>
 

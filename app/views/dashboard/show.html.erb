@@ -20,33 +20,43 @@
 
     <h3> My Bookings </h3>
 
-    <% @bookings.each do |booking| %>
-    <div class="entry-row row">
-      <div class="col-4">
-        <%= cl_image_tag booking.computer.photos.first.key, crop: :fill %>
-      </div>
-      <div class="col-6">
-        <ul>
-          <li><%= booking.computer.brand %> - <%= booking.computer.model %></li>
-          <li>Start: <strong><%= booking.start_date.strftime("%b. %d, %Y") %></strong></li>
-          <li>Return: <strong> <%= booking.end_date.strftime("%b. %d, %Y") %></strong></li>
-          <% start = booking.start_date %>
-          <% last = booking.end_date %>
-          <% days = last - start %>
-          <% price = days.to_i * booking.computer.price %>
-          <li class ="balance">Total: <strong><%= price %> €</strong></li>
-        </ul>
+    <% if @bookings.any? %>
+      <% @bookings.each do |booking| %>
+      <div class="entry-row row">
+        <div class="col-4">
+          <%= cl_image_tag booking.computer.photos.first.key, crop: :fill %>
+        </div>
+        <div class="col-6">
+          <ul>
+            <li><%= booking.computer.brand %> - <%= booking.computer.model %></li>
+            <li>Start: <strong><%= booking.start_date.strftime("%b. %d, %Y") %></strong></li>
+            <li>Return: <strong> <%= booking.end_date.strftime("%b. %d, %Y") %></strong></li>
+            <% start = booking.start_date %>
+            <% last = booking.end_date %>
+            <% days = last - start %>
+            <% price = days.to_i * booking.computer.price %>
+            <li class ="balance">Total: <strong><%= price %> €</strong></li>
+          </ul>
 
-      </div>
+        </div>
 
-      <div class="col-2">
-        <div class="d-flex icons">
-          <%= link_to "", edit_booking_path(booking), class: "fa-solid fa-pencil d-block" %>
-          <%= link_to "", booking_path(booking), class: "fa-solid fa-trash-can d-block", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        <div class="col-2">
+          <div class="d-flex icons">
+            <%= link_to "", edit_booking_path(booking), class: "fa-solid fa-pencil d-block" %>
+            <%= link_to "", booking_path(booking), class: "fa-solid fa-trash-can d-block", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </div>
         </div>
       </div>
+      <% end %>
+
+    <% else %>
+    <div class="entry-row row no-laptop">
+      <ul>
+        <li>You haven't booked any laptops.</li>
+        <li><%= link_to "Choose a laptop", root_path(anchor: "laptops"), class: "add-laptop-link" %></li>
+      </ul>
     </div>
-  <% end %>
+    <% end %>
   </div>
 
   <div class="computers-box col-sm-12 col-lg-6">
@@ -80,7 +90,7 @@
     <% else %>
       <div class="entry-row row no-laptop">
         <ul>
-          <li>You haven't posted any laptops for rental yet</li>
+          <li>You haven't posted any laptops for rental.</li>
           <li><%= link_to "Add a laptop", new_computer_path, class: "add-laptop-link" %></li>
         </ul>
       </div>

@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+  before_action :authenticate_user
+
   def show
     @booking = current_user.bookings.last
   end
@@ -42,5 +44,12 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
+  end
+
+  def authenticate_user
+    unless user_signed_in?
+      flash[:alert] = "You need to be logged in to access your bookings."
+      redirect_to root_path
+    end
   end
 end

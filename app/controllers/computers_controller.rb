@@ -1,4 +1,6 @@
 class ComputersController < ApplicationController
+  before_action :authenticate_user
+
   def show
     @computer = Computer.find(params[:id])
     @booking = Booking.new
@@ -47,6 +49,12 @@ class ComputersController < ApplicationController
 
   def computer_params
     params.require(:computer).permit(:brand, :model, :year, :screen_size , :processor, :ram,  :storage, :category, :os, :price, :description, photos: [])
+  end
 
+  def authenticate_user
+    unless user_signed_in?
+      flash[:alert] = "You need to be logged in to access laptops."
+      redirect_to root_path
+    end
   end
 end
