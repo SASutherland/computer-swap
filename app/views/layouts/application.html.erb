@@ -17,6 +17,6 @@
       <div class="<% unless controller.controller_name == "pages" && controller.action_name == "home" %>mt-5<% end %>">
         <%= yield %>
       </div>
-      <%= render "shared/footer" %>
+      <%= render "shared/footer" unless controller.controller_name == "dashboard" && controller.action_name == "show" %>
   </body>
 </html>

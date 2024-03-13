@@ -5,6 +5,11 @@
   font-size: 30px;
 }
 
+.margin-top {
+  margin-top: 80px;
+  width: 105%;
+}
+
 .avatar-big {
   border-radius: 50%;
   margin-top: 30px;
@@ -99,4 +104,31 @@
 .fa-trash-can:hover {
   color: #8e294b;
   transition: color 0.3s ease;
+}
+
+@media(max-width: 575px) {
+  .entry-row {
+    margin-top: -6px;
+  }
+  .col-6 {
+    margin-top: 10px;
+  }
+  h3 {
+    font-size: 22px !important;
+    white-space: nowrap;
+  }
+  p, li {
+    font-size: 12px !important;
+    white-space: nowrap;
+  }
+  .plus-sign {
+    font-size: 18px !important;
+  }
+}
+
+@media(min-width: 1400px) {
+  .margin-top {
+    width: 101%;
+    margin-left: 13px;
+  }
 }

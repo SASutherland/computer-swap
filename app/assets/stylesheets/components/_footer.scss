@@ -4,6 +4,7 @@
   justify-content: space-between;
   background-color: #141414;
   height: 100px;
+  width: 100%;
 }
 
 .footer-links a {
@@ -16,4 +17,10 @@
 .footer-links a:hover {
   transition: color 0.3s ease;
   color: $electric-blue-hover;
+}
+
+@media(min-width: 1300px) {
+  .footer {
+    width: 1300px;
+  }
 }
