@@ -4,3 +4,26 @@
   width: 99% !important;
   margin-top: 40px;
 }
+
+/* Remove the green checkmark from Simple Form dropdown inputs */
+.edit-booking-form .simple_form select {
+  background-image: none !important;
+}
+
+/* Remove the green border from Simple Form input fields */
+.edit-booking-form .simple_form input[type="text"],
+.edit-booking-form .simple_form input[type="email"],
+.edit-booking-form .simple_form input[type="password"],
+.edit-booking-form .simple_form select {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Adjust dropdown select elements for mobile screens */
+@media (min-width: 340px) and (max-width: 404px) {
+  .edit-booking-form .simple_form select {
+    width: auto !important;
+    padding-right: 35px !important; /* Removes whitespace from right side, truncating dropdown text */
+    margin: 0 !important;
+  }
+}

@@ -6,8 +6,8 @@
 
     <%= simple_form_for [ @booking] do |f| %>
     <%# <%= f.input :brand %>
-    <%= f.input :start_date, label: "New start date" %>
-    <%= f.input :end_date, label: "New return date" %>
+    <%= f.input :start_date, label: "New start date", input_html: { data: { input: 'date' } }, start_year: 2024 %>
+    <%= f.input :end_date, label: "New return date", input_html: { data: { input: 'date' } }, start_year: 2024 %>
     <%= f.submit class: "btn-purple" %>
       <% end %>
     </div>
