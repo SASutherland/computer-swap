@@ -107,21 +107,21 @@
 }
 
 @media(max-width: 575px) {
-  .entry-row {
+  .dashboard .entry-row {
     margin-top: -6px;
   }
-  .col-6 {
+  .dashboard .col-6 {
     margin-top: 10px;
   }
-  h3 {
+  .dashboard h3 {
     font-size: 22px !important;
     white-space: nowrap;
   }
-  p, li {
+  .dashboard p, li {
     font-size: 12px !important;
     white-space: nowrap;
   }
-  .plus-sign {
+  .dashboard .plus-sign {
     font-size: 18px !important;
   }
 }

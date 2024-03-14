@@ -1,5 +1,12 @@
 .show-container {
-  width: 1080px;
+  width: 100vw;
+}
+
+@media (min-width: 1300px) {
+  .show-container {
+    width: 1300px;
+    margin: 0 auto;
+  }
 }
 
 .computer-title {
@@ -102,7 +109,18 @@
   top: -5px;
 }
 
+@media (max-width: 767.98px) {
+  .show-body-wrapper {
+    grid-template-columns: 1fr; /* Change to a single column layout */
+  }
 
+  .details-card,
+  .booking-form {
+    width: 100%; /* Make each div take up 100% width */
+    margin-right: 0; /* Remove the right margin to ensure they stack properly */
+    // overflow-x: auto; /* Allow horizontal scrolling if content overflows */
+  }
+}
 
 
 

@@ -14,47 +14,47 @@
 
   </div>
 
-    <div class="carousel-wrapper">
-      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-          <% @computer.photos.each_with_index do |photo, i| %>
-            <div class="carousel-item <%= i == 0 ? "active" : "" %>">
-              <%= cl_image_tag photo.key, class: "carousel-img"  %>
-            </div>
-          <% end %>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+  <div class="carousel-wrapper">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
+      <div class="carousel-inner">
+        <% @computer.photos.each_with_index do |photo, i| %>
+          <div class="carousel-item <%= i == 0 ? "active" : "" %>">
+            <%= cl_image_tag photo.key, class: "carousel-img"  %>
+          </div>
+        <% end %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
+  </div>
 
-   <div class="show-body-wrapper">
+  <div class="show-body-wrapper">
 
-    <div class="details-card">
-      <ul>
-      <h3 class="specs" style="text-align: left">Specs</h3>
-        <li class="spec-list"><span class="specs">Year: </span><%= @computer.year %></li class="spec-list">
-        <li class="spec-list"><span class="specs">Ideal for: </span><%= @computer.category %></li class="spec-list">
-        <li class="spec-list"><span class="specs">Screen size: </span><%= @computer.screen_size %> inches </li class="spec-list">
-        <li class="spec-list"><span class="specs">Processor: </span><%= @computer.processor %></li class="spec-list">
-        <li class="spec-list"><span class="specs">Ram: </span><%= @computer.ram %></li class="spec-list">
-        <li class="spec-list"><span class="specs">Storage: </span><%= @computer.storage %></li class="spec-list">
-        <li class="spec-list"><span class="specs">OS: </span><%= @computer.os %></li class="spec-list">
-        <p class="spec-list pt-3"><span class="specs">Owner description: </span><%= @computer.description %></p>
-        <li class="spec-list pt-3"><h3 class="details-price"><%= @computer.price %>€ / day</h3></li>
-      </ul>
-    </div>
+  <div class="details-card">
+    <ul>
+    <h3 class="specs" style="text-align: left">Specs</h3>
+      <li class="spec-list"><span class="specs">Year: </span><%= @computer.year %></li class="spec-list">
+      <li class="spec-list"><span class="specs">Ideal for: </span><%= @computer.category %></li class="spec-list">
+      <li class="spec-list"><span class="specs">Screen size: </span><%= @computer.screen_size %> inches </li class="spec-list">
+      <li class="spec-list"><span class="specs">Processor: </span><%= @computer.processor %></li class="spec-list">
+      <li class="spec-list"><span class="specs">Ram: </span><%= @computer.ram %></li class="spec-list">
+      <li class="spec-list"><span class="specs">Storage: </span><%= @computer.storage %></li class="spec-list">
+      <li class="spec-list"><span class="specs">OS: </span><%= @computer.os %></li class="spec-list">
+      <p class="spec-list pt-3"><span class="specs">Owner description: </span><%= @computer.description %></p>
+      <li class="spec-list pt-3"><h3 class="details-price"><%= @computer.price %>€ / day</h3></li>
+    </ul>
+  </div>
 
   <div class="booking-form w-100">
     <h3>Book this laptop</h3>
