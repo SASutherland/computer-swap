@@ -27,7 +27,6 @@
   }
 }
 
-/* For less than 768px */
 @media (max-width: 768px) {
   .d-flex.row .col-1 {
     flex: 0 0 16%;
@@ -38,7 +37,6 @@
   }
 }
 
-/* For less than 575px */
 @media (max-width: 575px) {
   .d-flex.row .col-1 {
     flex: 0 0 18%;
@@ -50,13 +48,13 @@
   }
 }
 
-@media (max-width: 391px) {
+@media (max-width: 420px) {
   .d-flex.row .col-1 {
-    flex: 0 0 22%;
+    flex: 0 0 20%;
   }
 
   .d-flex.row .col-11 {
-    flex: 0 0 78%;
+    flex: 0 0 80%;
   }
 }
 
