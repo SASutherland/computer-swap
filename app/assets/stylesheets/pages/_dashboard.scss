@@ -17,6 +17,49 @@
   width: 70px;
 }
 
+@media (max-width: 991px) {
+  .d-flex.row .col-1 {
+    flex: 0 0 12%;
+  }
+
+  .d-flex.row .col-11 {
+    flex: 0 0 88%;
+  }
+}
+
+/* For less than 768px */
+@media (max-width: 768px) {
+  .d-flex.row .col-1 {
+    flex: 0 0 16%;
+  }
+
+  .d-flex.row .col-11 {
+    flex: 0 0 84%;
+  }
+}
+
+/* For less than 575px */
+@media (max-width: 575px) {
+  .d-flex.row .col-1 {
+    flex: 0 0 18%;
+  }
+
+  .d-flex.row .col-11 {
+    flex: 0 0 82%;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 391px) {
+  .d-flex.row .col-1 {
+    flex: 0 0 22%;
+  }
+
+  .d-flex.row .col-11 {
+    flex: 0 0 78%;
+  }
+}
+
 .computer-booking-container {
   display: flex;
   justify-content: space-between;
@@ -51,6 +94,12 @@
   background-color: #141414;
   margin-bottom: 3px;
   padding: 10px 0;
+}
+
+@media (max-width: 575px) {
+  .entry-row {
+    width: 107%;
+  }
 }
 
 .icons {
@@ -106,7 +155,7 @@
   transition: color 0.3s ease;
 }
 
-@media(max-width: 575px) {
+@media (max-width: 575px) {
   .dashboard .entry-row {
     margin-top: -6px;
   }
@@ -117,7 +166,7 @@
     font-size: 22px !important;
     white-space: nowrap;
   }
-  .dashboard p, li {
+  .dashboard p, .dashboard li {
     font-size: 12px !important;
     white-space: nowrap;
   }

@@ -2,14 +2,14 @@
   <div class="container dashboard-title">
   <div class="margin-top">
     <div class="d-flex row">
-      <div class="col-sm-2 col-lg-1">
+      <div class="col-1">
         <%if current_user.photo.attached?%>
           <%= cl_image_tag current_user.photo.key, class: "avatar-big" %>
         <% else %>
           <%= image_tag "default-avatar-grey-2.png", class: "avatar-big" %>
         <% end %>
       </div>
-      <div class="col-sm-10 col-lg-11">
+      <div class="col-11">
         <h3><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h3>
         <p>User since <%= current_user.created_at.strftime("%F") %></p>
       <div>
