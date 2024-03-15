@@ -26,10 +26,10 @@
       <% if @bookings.any? %>
         <% @bookings.each do |booking| %>
         <div class="entry-row row">
-          <div class="col-4">
+          <div class="col-5">
             <%= cl_image_tag booking.computer.photos.first.key, crop: :fill %>
           </div>
-          <div class="col-6">
+          <div class="col-5">
             <ul>
               <li><%= booking.computer.brand %> - <%= booking.computer.model %></li>
               <li>Start: <strong><%= booking.start_date.strftime("%b. %d, %Y") %></strong></li>
