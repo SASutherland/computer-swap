@@ -1,13 +1,14 @@
 <div class="banner" data-navbar-target="banner">
   <div class="container">
     <h1>Computer Swap lets you rent the best laptops!</h1>
-      <p>Choose a computer based on the  <span data-controller="typed-js"></span></p>
+      <p>Choose <span class="a-computer">a computer </span>based on the  <span data-controller="typed-js"></span></p>
       <a class="btn-purple" href="#laptops" role="button">Start browsing</a>
   </div>
 </div>
 
-<div class="container">
-  <div class="steps-container">
+<div class="index-container">
+
+  <div class="steps-centered">
     <div class="steps-grid">
       <div class="card steps" style="color: #d16186;">
         <h3>Choose it</h3>
@@ -32,32 +33,30 @@
       </div>
     </div>
   </div>
-</div>
 
-<div class="container" id="laptops">
-  <div class="index-container mb-5">
+  <div class="mt-5 mb-3" id="laptops">
     <h1>Choose a laptop</h1>
-  <%= render "searchbar", computers: @computers %>
+    <%= render "searchbar", computers: @computers %>
     <div class="cards">
       <% @computers.each do |computer| %>
-        <div class="card">
-          <% if computer.photos.attached? %>
-            <%= cl_image_tag computer.photos.first.key, class: 'laptop-image' %>
+      <div class="card">
+        <% if computer.photos.attached? %>
+          <%= cl_image_tag computer.photos.first.key, class: 'laptop-image' %>
+        <% end %>
+        <ul>
+          <li> <strong><%= computer.brand %></strong> </li>
+          <li> Ideal for: <%= computer.category %> </li>
+          <li> Screen size: <%= computer.screen_size %> inches </li>
+          <li> <span class="price"><em><strong><%= computer.price %>€ / day</strong></em></span> </li>
+        </ul>
+        <div class="container justify-content-center">
+          <% if user_signed_in? %>
+            <%= link_to "See more", computer_path(computer), class: "btn-purple btn-card" %>
+          <% else %>
+            <%= link_to "See more", new_user_session_path, class: "btn-purple btn-card" %>
           <% end %>
-          <ul>
-            <li> <strong><%= computer.brand %></strong> </li>
-            <li> Ideal for: <%= computer.category %> </li>
-            <li> Screen size: <%= computer.screen_size %> inches </li>
-            <li> <span class="price"><em><strong><%= computer.price %>€ / day</strong></em></span> </li>
-          </ul>
-          <div class="container justify-content-center">
-            <% if user_signed_in? %>
-              <%= link_to "See more", computer_path(computer), class: "btn-purple btn-card" %>
-            <% else %>
-              <%= link_to "See more", new_user_session_path, class: "btn-purple btn-card" %>
-            <% end %>
-          </div>
         </div>
+      </div>
       <% end %>
     </div>
   </div>

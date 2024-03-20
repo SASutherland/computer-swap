@@ -4,7 +4,8 @@
   justify-content: space-between;
   background-color: #141414;
   height: 100px;
-  width: 100%;
+  margin: 0 auto;
+  width: 1020px;
 }
 
 .footer-links a {
@@ -19,8 +20,8 @@
   color: $electric-blue-hover;
 }
 
-@media(min-width: 1300px) {
+@media(max-width: 1020px) {
   .footer {
-    width: 1300px;
+    width: 100vw;
   }
 }

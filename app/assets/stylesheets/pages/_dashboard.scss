@@ -1,4 +1,13 @@
-.dashboard-title h3 {
+.dashboard {
+  width: 1020px;
+  margin: 0 auto;
+}
+
+.dashboard-container {
+  margin-left: 12px;
+}
+
+.dashboard-profile h3 {
   margin-top: 33px;
   text-align: left;
   font-weight: bold;
@@ -7,7 +16,6 @@
 
 .margin-top {
   margin-top: 80px;
-  width: 105%;
 }
 
 .avatar-big {
@@ -15,47 +23,6 @@
   margin-top: 30px;
   height: 70px;
   width: 70px;
-}
-
-@media (max-width: 991px) {
-  .d-flex.row .col-1 {
-    flex: 0 0 12%;
-  }
-
-  .d-flex.row .col-11 {
-    flex: 0 0 88%;
-  }
-}
-
-@media (max-width: 768px) {
-  .d-flex.row .col-1 {
-    flex: 0 0 16%;
-  }
-
-  .d-flex.row .col-11 {
-    flex: 0 0 84%;
-  }
-}
-
-@media (max-width: 575px) {
-  .d-flex.row .col-1 {
-    flex: 0 0 18%;
-  }
-
-  .d-flex.row .col-11 {
-    flex: 0 0 82%;
-    margin-top: 5px;
-  }
-}
-
-@media (max-width: 420px) {
-  .d-flex.row .col-1 {
-    flex: 0 0 20%;
-  }
-
-  .d-flex.row .col-11 {
-    flex: 0 0 80%;
-  }
 }
 
 .computer-booking-container {
@@ -92,12 +59,6 @@
   background-color: #141414;
   margin-bottom: 3px;
   padding: 10px 0;
-}
-
-@media (max-width: 575px) {
-  .entry-row {
-    width: 107%;
-  }
 }
 
 .icons {
@@ -153,7 +114,28 @@
   transition: color 0.3s ease;
 }
 
+@media (max-width: 991px) {
+  .d-flex.row .col-1 {
+    flex: 0 0 12%;
+  }
+  .d-flex.row .col-11 {
+    flex: 0 0 88%;
+  }
+}
+
+@media (max-width: 768px) {
+  .d-flex.row .col-1 {
+    flex: 0 0 16%;
+  }
+  .d-flex.row .col-11 {
+    flex: 0 0 84%;
+  }
+}
+
 @media (max-width: 575px) {
+  .d-flex.row .col-1 {
+    flex: 0 0 18%;
+  }
   .dashboard .entry-row {
     margin-top: -6px;
   }
@@ -171,11 +153,27 @@
   .dashboard .plus-sign {
     font-size: 18px !important;
   }
-}
-
-@media(min-width: 1400px) {
-  .margin-top {
-    width: 101%;
-    margin-left: 13px;
+  .d-flex.row .col-11 {
+    flex: 0 0 82%;
+    margin-top: 5px;
+  }
+  .entry-row {
+    width: 107%;
   }
 }
+
+@media (max-width: 420px) {
+  .d-flex.row .col-1 {
+    flex: 0 0 20%;
+  }
+
+  .d-flex.row .col-11 {
+    flex: 0 0 80%;
+  }
+}
+// @media(min-width: 1400px) {
+  //   .margin-top {
+    //     width: 101%;
+    //     margin-left: 13px;
+    //   }
+    // }
