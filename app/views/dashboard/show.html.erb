@@ -1,27 +1,23 @@
-<div class="dashboard">
-<div class="dashboard-container">
-  <div class="dashboard-profile">
-  <div class="margin-top">
-    <div class="d-flex row">
-      <div class="col-1">
-        <%if current_user.photo.attached?%>
-          <%= cl_image_tag current_user.photo.key, class: "avatar-big" %>
-        <% else %>
-          <%= image_tag "default-avatar-grey-2.png", class: "avatar-big" %>
-        <% end %>
-      </div>
-      <div class="col-11">
-        <h3><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h3>
-        <p>User since <%= current_user.created_at.strftime("%F") %></p>
-      <div>
+<div class="container-fluid">
+  <div class="profile-row">
+    <div class="col-1">
+      <%if current_user.photo.attached?%>
+        <%= cl_image_tag current_user.photo.key, class: "avatar-big" %>
+      <% else %>
+        <%= image_tag "default-avatar-grey-2.png", class: "avatar-big" %>
+      <% end %>
     </div>
+    <div class="col-11 align-items-center">
+      <h3><%= current_user.first_name.capitalize %> <%= current_user.last_name.capitalize %></h3>
+      <p>User since <%= current_user.created_at.strftime("%F") %></p>
     </div>
   </div>
 
-  <div class="computer-booking-container row mb-5">
+  <div class="computer-booking-wrapper">
 
-    <div class="bookings-box col-sm-12 col-lg-6">
+    <div class="row">
 
+      <div class="bookings-box col-xs-11 col-sm-9 col-md-7 col-lg-6">
       <h3> My Bookings <span class="plus-sign"><%= link_to "", root_path(anchor: "laptops"), class: "fa-solid fa-circle-plus add-laptop-link" %></span></h3>
 
       <% if @bookings.any? %>
@@ -46,7 +42,7 @@
 
           <div class="col-2">
             <div class="d-flex icons">
-              <%= link_to "", edit_booking_path(booking), class: "fa-solid fa-pencil d-block" %>
+              <%= link_to "", edit_booking_path(booking), class: "fa-regular fa-pen-to-square" %>
               <%= link_to "", booking_path(booking), class: "fa-solid fa-trash-can d-block", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
             </div>
           </div>
@@ -63,18 +59,18 @@
       <% end %>
     </div>
 
-    <div class="computers-box col-sm-12 col-lg-6">
+    <div class="computers-box col-xs-11 col-sm-9 col-md-7 col-lg-6">
       <h3>My Laptops <span class="plus-sign"><%= link_to "", new_computer_path, class: "fa-solid fa-circle-plus add-laptop-link" %></span></h3>
 
       <% if @computers.any? %>
         <% @computers.each do |computer| %>
         <div class="entry-row row">
 
-          <div class="col-4">
+          <div class="col-5">
             <%= cl_image_tag computer.photos.first.key, crop: :fill %>
           </div>
 
-          <div class="col-6">
+          <div class="col-5">
             <ul>
               <li><%= computer.brand %> - <%= computer.model %></li>
               <li>Category: <%= computer.category %> </li>
@@ -85,7 +81,7 @@
 
           <div class="col-2">
             <div class="d-flex icons">
-              <%= link_to "", edit_computer_path(computer), class: "fa-solid fa-pencil" %>
+              <%= link_to "", edit_computer_path(computer), class: "fa-regular fa-pen-to-square" %>
               <%= link_to "", computer_path(computer), class: "fa-solid fa-trash-can", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
             </div>
           </div>
@@ -102,6 +98,5 @@
       </div>
     </div>
   </div>
-  <!-- This view does not require the footer -->
-</div>
+
 </div>
