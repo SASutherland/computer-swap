@@ -67,7 +67,9 @@
         <div class="entry-row row">
 
           <div class="col-5">
-            <%= cl_image_tag computer.photos.first.key, crop: :fill %>
+            <% if computer.photos.first %>
+              <%= cl_image_tag computer.photos.first.key, crop: :fill %>
+            <% end %>
           </div>
 
           <div class="col-5">
